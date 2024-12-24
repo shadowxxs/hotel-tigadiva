@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2024 at 11:25 PM
+-- Generation Time: Dec 24, 2024 at 06:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,7 +62,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `guest_name`, `email`, `room_type`, `floor`, `room_number`, `room_id`, `check_in_date`, `check_out_date`, `status`, `payment_status`, `total_payment`, `payment_method`) VALUES
-(20, 'nilam', 'nilam@gmail.com', 'Single', 2, 5, 74, '2024-12-24', '2024-12-25', 'Cancelled', 'Pending', 500000.00, 'Cash');
+(24, 'nilam', 'nilam@gmail.com', 'Single', 2, 5, 74, '2024-12-25', '2024-12-26', 'Reserved', 'Pending', 500000.00, 'Cash'),
+(25, 'nilam', 'nilam@gmail.com', 'Single', 2, 6, 75, '2024-12-25', '2024-12-26', 'Reserved', 'Pending', 500000.00, 'Cash');
 
 -- --------------------------------------------------------
 
@@ -87,8 +88,8 @@ INSERT INTO `rooms` (`id`, `room_type`, `floor`, `room_number`, `status`) VALUES
 (71, 'Single', 2, 2, 'Booked'),
 (72, 'Single', 2, 3, 'Booked'),
 (73, 'Single', 2, 4, 'Booked'),
-(74, 'Single', 2, 5, 'Available'),
-(75, 'Single', 2, 6, 'Available'),
+(74, 'Single', 2, 5, 'Booked'),
+(75, 'Single', 2, 6, 'Booked'),
 (76, 'Single', 2, 7, 'Available'),
 (77, 'Single', 2, 8, 'Available'),
 (78, 'Single', 2, 9, 'Available'),
@@ -238,13 +239,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `rooms`

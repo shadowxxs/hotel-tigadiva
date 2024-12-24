@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Cancel Reservation</title>
-</head>
-<body>
-    <div class="container mt-5">
-        <h1>Cancel Reservation</h1>
-        <form action="process_cancel.php" method="post">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Cancel</button>
-            <a href="index.php" class="btn btn-secondary">Back to Homepage</a>
-        </form>
-    </div>
-</body>
-</html>
+<?php
+session_start();
+
+if (isset($_POST['reservation_id']) && isset($_SESSION['username'])) {
+    $reservation_id = $_POST['reservation_id'];
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "hotel_reservation";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql_cancel_reservation = "UPDATE reservations SET status='Cancelled' WHERE id='$reservation_id' AND email='{$_SESSION['username']}'";
+    if ($conn->query($sql_cancel_reservation) === TRUE) {
+        echo "<p>Reservation cancelled successfully.</p>";
+    } else {
+        echo "<p>Error cancelling reservation: " . $conn->error . "</p>";
+    }
+
+    $conn->close();
+} else {
+    echo "<p>Invalid request.</p>";
+}
+?>

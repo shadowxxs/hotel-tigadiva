@@ -8,28 +8,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Hotel Reservation</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">TigaDiva Hotel</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="reserve.php">Reserve a Room</a></li>
-                <li class="nav-item"><a class="nav-link" href="check_status.php">Check Reservation Status</a></li>
-                <li class="nav-item"><a class="nav-link" href="cancel.php">Cancel Reservation</a></li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <?php
-                if (isset($_SESSION['username'])) {
-                    echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
-                } else {
-                    echo "<li class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>";
-                }
-                ?>
-            </ul>
-        </div>
-    </nav>
+    <?php include 'navbar.php'; ?>
     <div class="container mt-5">
         <h1>Welcome to TigaDiva Hotel</h1>
         <?php

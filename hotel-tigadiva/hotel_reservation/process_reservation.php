@@ -80,7 +80,7 @@ if ($conn->query($sql) === TRUE) {
         $sql_payment = "INSERT INTO payments (reservation_id, payment_method, bank_account, amount)
                         VALUES ($reservation_id, '$payment_method', '$bank_account', $total_payment)";
         if ($conn->query($sql_payment) === TRUE) {
-            echo "<br>Please transfer the total amount to the provided bank account.";
+            echo "<br>Please transfer the total amount to 12345678 Michele Bank ABC.";
         } else {
             echo "<br>Error processing payment details.";
         }
